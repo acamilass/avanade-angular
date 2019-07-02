@@ -1,0 +1,15 @@
+<p [ngStyle]="{ background: cont < 4 ?'red' : 'green' }" [ngClass]="{ teste: cont > 5 }">O contador é: {{ cont }}</p> 
+
+<p *ngIf="cont > 5; else menor">Contador passou de 5</p>
+
+<ng-template #menor>
+    <p>Contador menor que 5</p>
+</ng-template>
+
+<div [ngSwitch]="cont">
+    <p *ngSwitchCase="3">Igual a 3</p>
+    <p *ngSwitchCase="4">Agora é 4</p>
+    <p *ngSwitchCase="5">Mudou para 5</p>
+    <p *ngSwitchCase="6">E agora 6</p>
+    <p *ngSwitchDefault>Por último nada</p>
+</div>
