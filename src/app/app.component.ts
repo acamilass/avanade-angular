@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from './services/todo.service';
+import { map, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,18 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Ana Camila';
-  novo: string = 'oi';
-  items = ['Oi', 'tudo', 'bem', 'com', 'você'];
 
-  novoItem() {
-    const text = prompt('Digite novo texto');
-    this.items.push(text);
+  cont = 0;
+  
+  constructor(public todoService: TodoService) {
+    
   }
-
+  
   ngOnInit() {
-    setTimeout(() => {
-      this.title = 'Santos';
-    }, 2000);
+    this.todoService.cont
+    .pipe(
+      map(x => x * 2),
+      debounceTime(2000)
+    )
+    .subscribe(value => {
+      this.cont = value;
+    })
   }
 }
