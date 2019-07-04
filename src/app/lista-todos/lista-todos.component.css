@@ -1,6 +1,7 @@
 .card-todo {
-    height: 200px;
+    height: 250px;
     width: 320px;
     border: 2px solid #000;
     margin-bottom: 20px;
+    padding: 10px;
 }

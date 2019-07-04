@@ -1,0 +1,29 @@
+<div>
+    <form #form="ngForm">
+        <input type="text" name="email" [(ngModel)]="todo.title" #titulo="ngModel" required placeholder="Título">
+        <input type="text" name="descricao" [(ngModel)]="todo.description" #descricao="ngModel" placeholder="Descrição"
+            required>
+        <input type="date" name="data" [(ngModel)]="todo.date" #data="ngModel" placeholder="Data" required>
+        <span>Terminado?</span><input type="checkbox" name="terminado" [(ngModel)]="todo.finished" #terminado="ngModel">
+        <button [disabled]="form.invalid" (click)="enviarForm()">Enviar</button>
+    </form>
+
+    {{ todo | json }}
+
+</div>
+
+<!-- <input type="email" 
+        [(ngModel)]="email" 
+        #inputEmail="ngModel" 
+        minlength="4"
+        email
+        required
+    >
+
+    <p>{{ email }}</p>
+
+    <div *ngIf="inputEmail.errors && inputEmail.touched">
+        <p *ngIf="inputEmail?.errors.minlength">E-mail inválido</p> 
+        <p *ngIf="inputEmail?.invalid">E-mail inválido</p>
+        <p *ngIf="inputEmail?.errors.required">E-mail é obrigatório</p>
+    </div> -->

@@ -1,0 +1,11 @@
+<div>
+    <input type="text" [(ngModel)]="cepTexto">
+
+    <button (click)="buscarCep()">Buscar</button>
+    
+    <p>CEP: {{ cep.cep }}</p>
+    <p>Logradouro: {{ cep.logradouro }}</p>
+    <p>Bairro: {{ cep.bairro }}</p>
+    <p>Cidade: {{ cep.localidade }}</p>
+    <p>UF: {{ cep.uf }}</p>
+</div>
