@@ -4,10 +4,19 @@
 
 <p>App: {{ cont }}</p> -->
 
+<div *ngIf="email !== ''">
+    <p>Olá, {{ email }}</p> 
+    <button (click)="logout()">Sair</button>
+</div>
+
+
+
 <a routerLink="/">Home</a> | 
 <a routerLink="/todos">Todos</a> | 
-<a routerLink="/cep">CEP</a> |
-<a routerLink="add-todo">Add Todo</a>
+<a routerLink="/cep">CEP</a> | 
+<a routerLink="todos/add-todo">Add Todo</a> | 
+<a routerLink="auth/login">Login</a> |
+<a routerLink="auth/register">Registrar</a>
 
 <router-outlet></router-outlet>
 

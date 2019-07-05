@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CepService } from '../services/cep.service';
+import { CepService } from '../cep.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
