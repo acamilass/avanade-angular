@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   }, 
   {
     path: 'todos',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) 
   },
   {

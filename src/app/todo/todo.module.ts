@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'add-todo',
     component: AddTodoComponent
+  },
+  {
+    path: ':id',
+    component: AddTodoComponent
   }
 ]
 

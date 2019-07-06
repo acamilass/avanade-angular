@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.idToken);
 
         this.authService.setUser({
+          id: res.localId,
           email: res.email,
         })
       },

@@ -7,7 +7,7 @@
         <span>Terminado?</span><input type="checkbox" name="terminado" [(ngModel)]="todo.finished" #terminado="ngModel">
         <button [disabled]="form.invalid" (click)="enviarForm()">Enviar</button>
     </form>
-
+    <button routerLink="/todos">Ir para lista</button>
     <!-- {{ todo | json }} -->
 
 </div>

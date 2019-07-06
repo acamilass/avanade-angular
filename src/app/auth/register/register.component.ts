@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   senha = '';
   confirmarSenha = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,9 +27,15 @@ export class RegisterComponent implements OnInit {
     };
 
     this.authService.createAccount(this.email, this.senha).subscribe(
-      res => {
+      (res: any) => {
         alert('Usuário criado com sucesso');
         console.log(res);
+        localStorage.setItem('token', res.idToken);
+
+        this.authService.setUser({
+          id: res.localId,
+          email: res.email,
+        })
       }
     )
   }

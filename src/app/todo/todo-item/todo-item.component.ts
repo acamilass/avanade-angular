@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/typings/Todo';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,9 +10,18 @@ import { Todo } from 'src/typings/Todo';
 export class TodoItemComponent implements OnInit {
   @Input() data: Todo;
 
-  constructor() { }
+  @Output() deleteEvent = new EventEmitter<number>();
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  editar() {
+    this.router.navigateByUrl('/todos/' + this.data.id);
+  }
+
+  excluir() {
+    this.deleteEvent.emit(this.data.id);
+  }
 }

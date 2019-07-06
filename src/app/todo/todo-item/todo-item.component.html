@@ -4,4 +4,7 @@
     <p>Descrição: {{ data.description }}</p>
     <p>Data: {{ data.date }} </p>
     <p>Terminado? {{ data.finished | bool }}</p>
+
+    <button (click)="editar()">Editar</button>
+    <button (click)="excluir()">Excluir</button>
 </div>

@@ -4,19 +4,29 @@
 
 <p>App: {{ cont }}</p> -->
 
-<div *ngIf="email !== ''">
-    <p>Olá, {{ email }}</p> 
+<div *ngIf="user$ | async; else deslogado">
+    <p>Olá, {{ (user$ | async).email }}</p>
     <button (click)="logout()">Sair</button>
+
+    <div>
+        <a routerLink="/">Home</a> |
+        <a routerLink="/todos">Todos</a> |
+        <a routerLink="todos/add-todo">Add Todo</a> |
+        <a routerLink="/cep">CEP</a> 
+    </div>    
 </div>
 
+<ng-template #deslogado>
+    <a routerLink="/">Home</a> |
+    <a routerLink="/cep">CEP</a> |
+    <a routerLink="auth/login">Login</a> |
+    <a routerLink="auth/register">Registrar</a>
+</ng-template>
 
 
-<a routerLink="/">Home</a> | 
-<a routerLink="/todos">Todos</a> | 
-<a routerLink="/cep">CEP</a> | 
-<a routerLink="todos/add-todo">Add Todo</a> | 
-<a routerLink="auth/login">Login</a> |
-<a routerLink="auth/register">Registrar</a>
+
+
+
+
 
 <router-outlet></router-outlet>
-
